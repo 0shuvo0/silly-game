@@ -42,7 +42,7 @@ const removeSound = new Audio('sounds/remove.wav')
 const endSound = new Audio('sounds/end.wav')
 const bgm = new Audio('sounds/bgm.mp3')
 bgm.loop = true
-bgm.play()
+
 
 function renderPlayers(players){
     playersDiv.innerHTML = ''
@@ -280,6 +280,12 @@ function start(){
     renderPlayers(players)
     initKeysListeners()
     animate()
+    bgm.play()
 }
 
-start()
+// start()
+const startBtn = $('.start-btn')
+startBtn.addEventListener('click', () => {
+    startBtn.remove()
+    start()
+})
